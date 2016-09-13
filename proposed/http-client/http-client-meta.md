@@ -33,7 +33,7 @@ specify the default behaviours.
 ### Exceptions
 
 Our the domain exceptions `NetworkException`, `RequestException` and `HttpException` define 
-a contract very similar to eachother. The choosen approach is to not let them extend eachother
+a contract very similar to eachother. The choosen approach is to not let them extend each other
 because inheritance does not make sense in the domain model. A `RequestException` is not a 
 `NetworkException`. 
 
