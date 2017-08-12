@@ -29,8 +29,7 @@ client will allow libraries to be decoupled from an implementation such as Guzzl
 ### Non-Goals
 
 * The purpose of this PSR is not to support asynchronous HTTP clients.
-* This PSR will not include how to configure a HTTP client. It does only
-specify the default behaviours.
+* This PSR will not include how to configure a HTTP client. 
 * The purpose is not to be opinionated about the use of middlewares (PSR-15).
 
 
@@ -41,8 +40,7 @@ specify the default behaviours.
 The intention of this PSR is ensure library developers that all HTTP clients have the same 
 **default behavior**. That means that all HTTP clients MUST follow Liskov substitution principle
 when no configuration is provided. The PSR does not try to restrict nor define configuration for 
-HTTP clients. An implementing library is free to be configured by the application author to follow
-redirects, to throw exceptions or any other possible setting.  
+HTTP clients.
 
 An alternative approach would be to pass configuration to the client. That approach would have
 a few drawbacks: 

@@ -21,9 +21,9 @@ implementations. This would make libraries more stable since the reduced number 
 dependencies and the likelihood to get in version conflicts is reduced.
 
 The second goal is that all HTTP clients should follow the [Liskov substitutions principle][Liskov].
-This means that all clients should act the same when sending a request. By default a HTTP client
-should not follow redirect nor throw exceptions on HTTP responses with status 4xx or 5xx.
-
+This means that all clients should act the same when sending a request. A consuming
+library SHOULD expect a HTTP client to NOT follow redirects NOR throw exceptions based
+on HTTP response statuses.
 
 ## Interfaces
 
@@ -43,10 +43,9 @@ interface HttpClient
     /**
      * Sends a PSR-7 request.
      *
-     * If a request is sent without any prior configuration, an exception MUST NOT be thrown
-     * when a response is recieved, no matter the HTTP status code.
+     * An exception MUST NOT be thrown when a response is recieved, no matter the HTTP status code.
      *
-     * If a request is sent without any prior configuration, a HTTP client MUST NOT follow redirects.
+     * The HTTP client MUST NOT follow redirects.
      *
      * The client MAY do modifications to the Request before sending it. Because PSR-7 objects are
      * immutable, one cannot assume that the object passed to HttpClient::sendRequest will be the same
@@ -148,7 +147,8 @@ use Psr\Http\Client\Exception;
  * Thrown when a response was received but the request itself failed.
  *
  * This exception MAY be thrown on HTTP response codes 4xx and 5xx.
- * This exception MUST NOT be thrown when using the client's default configuration.
+ * A comsuming library SHOULD NOT except this exception to be thrown. The
+ * exception exists for middlewares, third party library and application code.
  */
 interface HttpException extends Exception
 {
