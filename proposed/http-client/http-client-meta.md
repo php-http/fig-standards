@@ -29,7 +29,7 @@ client will allow libraries to be decoupled from an implementation such as Guzzl
 ### Non-Goals
 
 * The purpose of this PSR is not to support asynchronous HTTP clients.
-* This PSR will not include how to configure a HTTP client. 
+* This PSR does not include how to configure a HTTP client. 
 * The purpose is not to be opinionated about the use of middlewares (PSR-15).
 
 
